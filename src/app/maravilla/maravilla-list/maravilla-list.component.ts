@@ -23,6 +23,7 @@ export class MaravillaListComponent implements OnInit {
   getMaravillas(): void {
     this.maravillaService.getMaravillas().subscribe(( maravillas: Array<Maravilla>) => {
       this.maravillas = maravillas;
+      this.maravillas.sort( (m1, m2) => m1.country < m2.country ? -1 : 1);
       console.log(maravillas);
     })
   }
